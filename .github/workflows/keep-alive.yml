@@ -23,7 +23,7 @@ jobs:
     steps:
       - name: Ping every 3 minutes for about 5h40m
         run: |
-          URL="https://dvein-backend.onrender.com/api/v1/health"
+          URL="https://dvein-backend.onrender.com/api/v1/health?src=keepalive"
           END=$(( $(date +%s) + 20400 ))
           while [ "$(date +%s)" -lt "$END" ]; do
             code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 100 "$URL" || echo 000)
